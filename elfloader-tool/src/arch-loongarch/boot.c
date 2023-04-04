@@ -1,7 +1,7 @@
 /*
  * Copyright 2022, tyyteam(Qingtao Liu, Yang Lei, Yang Chen)
  * qtliu@mail.ustc.edu.cn, le24@mail.ustc.edu.cn, chenyangcs@mail.ustc.edu.cn
- * 
+ *
  * Derived from:
  * Copyright 2020, DornerWorks
  * Copyright 2020, Data61, CSIRO (ABN 41 687 119 230)
@@ -148,7 +148,7 @@ static void init_tlb(void)
         printf("MMU doesn't support PAGE_SIZE\n");
 
     setup_tlb_handler();
-    // invtlb();
+    invtlb();
 }
 
 static int map_kernel_window(struct image_info *kernel_info)
@@ -162,7 +162,7 @@ static int map_kernel_window(struct image_info *kernel_info)
         printf("ERROR: Kernel not properly aligned\n");
         return -1;
     }
-    
+
 
     index = GET_PT_INDEX(kernel_info->virt_region_start, PT_LEVEL_1);
 
